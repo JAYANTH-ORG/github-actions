@@ -3,7 +3,7 @@ name: Notify Squads
 on:
   push:
     branches:
-      - release/*
+      - master
 
 jobs:
   notify-squads:
