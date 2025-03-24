@@ -1,0 +1,36 @@
+name: Notify Squads
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  notify-squads:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get changed files
+        id: changes
+        run: |
+          git fetch origin master
+          git diff --name-only HEAD^ HEAD > changed_files.txt
+
+      - name: Notify squads
+        run: |
+          while IFS= read -r file; do
+            if [[ "$file" == folder1/* ]]; then
+              echo "Notifying Squad 1 for changes in $file"
+              # Add notification logic for Squad 1 here
+            elif [[ "$file" == folder2/* ]]; then
+              echo "Notifying Squad 2 for changes in $file"
+              # Add notification logic for Squad 2 here
+            elif [[ "$file" == folder3/* ]]; then
+              echo "Notifying Squad 3 for changes in $file"
+              # Add notification logic for Squad 3 here
+            else
+              echo "No squad notification required for $file"
+            fi
+          done < changed_files.txt
