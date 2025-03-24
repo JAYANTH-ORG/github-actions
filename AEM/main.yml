@@ -35,5 +35,5 @@ jobs:
     needs: build
 
     steps:
-      - name: Deploy Application
+      - name: Deploy AEM Application
         run: echo "Deploy step goes here (e.g., upload to server or cloud provider)"
