@@ -26,14 +26,14 @@ jobs:
       - name: Notify squads
         run: |
           while IFS= read -r file; do
-            if [[ "$file" == folder1/* ]]; then
-              echo "Notifying Squad 1 for changes in $file"
+            if [[ "$file" == AEM/* ]]; then
+              echo "Notifying AEM for changes in $file"
               # Add notification logic for Squad 1 here
-            elif [[ "$file" == folder2/* ]]; then
-              echo "Notifying Squad 2 for changes in $file"
+            elif [[ "$file" == AKS/* ]]; then
+              echo "Notifying AKS for changes in $file"
               # Add notification logic for Squad 2 here
-            elif [[ "$file" == folder3/* ]]; then
-              echo "Notifying Squad 3 for changes in $file"
+            elif [[ "$file" == MAVEN* ]]; then
+              echo "Notifying MAVEN for changes in $file"
               # Add notification logic for Squad 3 here
             else
               echo "No squad notification required for $file"
